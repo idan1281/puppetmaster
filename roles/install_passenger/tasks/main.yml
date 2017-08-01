@@ -30,7 +30,7 @@
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: yum update 
-  shell: yum update
+  shell: yum -y --exclude=kernel\*  update 
   become: true
 
 - name: install prerequisites
@@ -58,10 +58,11 @@
 # Install Passenger + Apache module
 - name : Install Passenger + Apache module
   shell: sudo yum install -y mod_passenger || sudo yum-config-manager --enable cr && sudo yum install -y mod_passenger
-  notify: Restart apache2
  
 # Validating the installtion
 - name: Validate Install
   command: /usr/bin/passenger-config validate-install
 
+- name: Restart Apache2
+  service:  name=httpd state=restarted
 
