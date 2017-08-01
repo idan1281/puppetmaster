@@ -1,0 +1,24 @@
+---
+#- name: Reload unicorn
+#  service: name=unicorn state=reloaded
+
+#- name: Restart unicorn
+#  service: name=unicorn state=restarted
+
+- name: Reload nginx
+  service: name=nginx state=reloaded
+
+- name: Restart nginx
+  service: name=nginx state=restarted
+
+- name: Reload apache2
+  service: name=httpd state=reloaded
+
+- name: Enable apache2  
+  service: name=httpd enabled=yes
+
+- name: Stop puppetmaster
+  shell: /etc/init.d/puppetserver stop
+
+- name: Disable puppetmaster
+  shell: chkconfig puppetmaster off 

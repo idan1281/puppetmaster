@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Alexey Remizov
+  description: Install and configure puppetmaster, unicorn and nginx
+  min_ansible_version: 1.7
+  license: GPL-3+
+  platforms:
+  - name: Debian
+    versions:
+    - wheezy
+    - jessie
+  categories:
+  - system
+dependencies:
+  - alxrem.puppetlabs-release

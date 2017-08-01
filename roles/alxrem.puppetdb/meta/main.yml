@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Alexey Remizov
+  description: Module installs Puppetlabs puppetdb 2.x
+  license: GPLv3+
+  min_ansible_version: 1.7
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+    - wheezy
+  categories:
+  - system
+dependencies:
+- alxrem.puppetlabs-release

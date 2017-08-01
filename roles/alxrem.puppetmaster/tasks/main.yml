@@ -1,0 +1,53 @@
+---
+- name: Create config directory
+  file: path={{ conf_dir }} state=directory
+
+- name: Install pupetMaster
+  yum: name=puppetserver
+  become: true 
+
+- name: Upgrade PuppetMaster
+  shell: puppet resource package puppet-server ensure=latest
+  become: true
+
+- name: initiate CA server
+  shell: puppet master –verbose –no-demonize
+  become: true
+
+- name: install Apache2
+  yum: name={{ item }} update_cache=true
+  with_items: 
+  - httpd 
+  - httpd-devel 
+  - mod_ssl 
+  - ruby-devel 
+  - rubygems 
+  - gcc
+  become: true
+
+- name: Install Rack/Passenger gems
+  become: true
+  gem: name={{ item }}
+  with_items:
+  - rack
+  - passenger
+
+- name: Install Passenger-Modoule
+  shell: sudo passenger-install-apache2-module 
+
+- name: create Rack folder layout
+  file:
+    path: "/usr/share/puppet/rack/{{item}}"
+    state: directory
+    mode: 0755
+    recurse: yes
+  with_items: ["puppetmasterd", "puppetmasterd/public", "puppetmasterd/tmp"]
+
+- name: configure Apache2
+  template: src=puppetlabs.conf.j2 dest={{ apache_dir }}/puppetlabs.conf 
+  notify: 
+     - Stop puppetmaster
+     - Reload apache2
+     - Disable puppetmaster
+     - Enable apache2
+

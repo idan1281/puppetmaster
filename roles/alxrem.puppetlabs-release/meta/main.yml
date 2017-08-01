@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Alexey Remizov
+  description: Install Puppetlabs release package
+  license: GPL-3+
+  min_ansible_version: 1.7
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+    - wheezy
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+  categories:
+  - system

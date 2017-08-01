@@ -1,0 +1,3 @@
+---
+conf_dir: /etc/puppetdb/conf.d
+drop_non_local_rule: -p tcp -m addrtype ! --src-type LOCAL -m multiport --dports {{ puppetdb_port }},{{ puppetdb_ssl_port }} -j DROP

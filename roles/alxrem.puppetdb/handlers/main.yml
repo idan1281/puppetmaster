@@ -1,0 +1,32 @@
+---
+- name: Restart puppetdb
+  service: name=puppetdb state=restarted
+
+- name: Start puppetdb
+  service: name=puppetdb state=started
+
+- name: Stop puppetdb
+  service: name=puppetdb state=stopped
+
+- name: Enable puppetdb
+  shell: chkconfig puppetdb on
+
+- name: Stop puppetmaster
+  service: name=puppetmaster state=stopped
+
+- name: Start puppetmaster
+  service: name=puppetmaster state=started
+
+- name: Restart puppetmaster
+  service: name=puppetmaster state=restarted
+
+- name: Enable puppetmaster
+  shell: chkconfig puppetmaster on
+
+- name: Restart puppet
+  service: name=puppet state=restarted
+
+- name: Enable puppet
+  shell: chkconfig puppet on
+
+

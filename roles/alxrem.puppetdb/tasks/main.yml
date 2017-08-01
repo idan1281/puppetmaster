@@ -1,0 +1,28 @@
+---
+
+- name: Install packages
+  yum: name={{ item }} update_cache=true 
+  with_items:
+  - puppetdb
+  - puppetdb-terminus
+
+- name: Configure database
+  template: src=database/{{ puppetdb_backend }}.ini.j2 dest={{ conf_dir }}/database.ini
+
+- name: Configure jetty
+  template: src=jetty.ini.j2 dest={{ conf_dir }}/jetty.ini
+#  notify: Restart puppetdb
+
+- name: Configure connection to puppetdb
+  template: src=puppetdb.conf.j2 dest={{ conf_dir }}/puppetdb.conf
+#  when: puppetmaster_use_puppetdb
+
+- name: Configure puppet routes
+  template: src=routes.yaml.j2 dest={{ conf_dir }}/routes.yaml
+  notify:
+  - Start puppetmaster
+  - Stop puppetmaster
+  - Restart puppetdb
+  - Restart puppet 
+
+

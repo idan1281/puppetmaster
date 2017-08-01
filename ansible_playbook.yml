@@ -1,0 +1,13 @@
+- name: Create a PostgreSQL DB server
+  hosts: localhost 
+  sudo: yes
+  sudo_user: root
+  remote_user: root
+  vars_files:
+    - host_vars/main.yml
+
+  roles:
+  - createdb
+  - install_passenger
+  - alxrem.puppetmaster
+  - alxrem.puppetdb

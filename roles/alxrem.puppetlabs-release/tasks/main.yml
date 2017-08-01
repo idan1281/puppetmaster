@@ -1,0 +1,11 @@
+---
+- name: Define name of release package
+  include_vars: "{{ item }}"
+  with_first_found:
+  - ../vars/{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml
+  - ../vars/{{ ansible_distribution }}.yml
+  - ../vars/default.yml
+
+- name: install release package
+  shell: sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+  become: true
