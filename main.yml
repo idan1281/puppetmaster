@@ -1,0 +1,9 @@
+---
+db_user: puppetdb 
+db_name: puppetdb
+db_password: puppetdb
+
+puppetmaster_server_name: puppet.example.org
+puppetmaster_use_puppetdb: true
+
+update_cache: yes 

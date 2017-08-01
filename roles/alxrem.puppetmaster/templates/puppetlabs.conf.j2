@@ -19,9 +19,9 @@ Listen 8140
     # Only allow high security cryptography. Alter if needed for compatibility.
     SSLProtocol             All -SSLv2
     SSLCipherSuite          HIGH:!ADH:RC4+RSA:-MEDIUM:-LOW:-EXP
-    SSLCertificateFile      {{ ssl_dir }}/certs/{{ ansible_fqdn | lower }}.tlv.sap.corp.pem 
+    SSLCertificateFile      {{ ssl_dir }}/certs/{{ ansible_fqdn | lower }}.pem 
    #SSLCertificateFile      /var/lib/puppet/ssl/certs/puppet.serverlab.intra.pem 
-    SSLCertificateKeyFile   {{ ssl_dir }}/private_keys/{{ ansible_fqdn | lower }}.tlv.sap.corp.pem
+    SSLCertificateKeyFile   {{ ssl_dir }}/private_keys/{{ ansible_fqdn | lower }}.pem
    #SSLCertificateKeyFile   /var/lib/puppet/ssl/private_keys/puppet.serverlab.intra.pem
     SSLCertificateChainFile {{ ssl_dir }}/ca/ca_crt.pem
    #SSLCertificateChainFile /var/lib/puppet/ssl/ca/ca_crt.pem

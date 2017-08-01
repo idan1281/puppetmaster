@@ -47,7 +47,7 @@
   template: src=puppetlabs.conf.j2 dest={{ apache_dir }}/puppetlabs.conf 
   notify: 
      - Stop puppetmaster
-     - Reload apache2
+    # - Reload apache2
      - Disable puppetmaster
      - Enable apache2
 

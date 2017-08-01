@@ -29,4 +29,6 @@
 - name: Enable puppet
   shell: chkconfig puppet on
 
-
+- name: Restat server
+  shell: reboot
+  become: true
