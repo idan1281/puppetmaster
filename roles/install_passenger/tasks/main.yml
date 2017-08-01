@@ -30,7 +30,7 @@
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: yum update 
-  shell: yum -y --exclude=kernel\*  update 
+  shell: yum -y --exclude=centos-release*  update 
   become: true
 
 - name: install prerequisites

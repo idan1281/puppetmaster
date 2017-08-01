@@ -1,4 +1,4 @@
-sudo yum -y --exclude=kernel\*  update 
+sudo yum -y --exclude=centos-release*  update 
 sudo yum -y install wget curl openssh-server
 
 # Install root certificates

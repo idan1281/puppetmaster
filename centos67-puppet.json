@@ -1,6 +1,6 @@
 {
     "variables": {
-        "iso": "iso/CentOS-6.7-x86_64-bin-DVD1.iso",
+        "iso": "../iso/CentOS-6.7-x86_64-bin-DVD1.iso",
         "checksum": "51f90e8ddd2ea199780065eaf75130ad"
     },
     "builders": [{
