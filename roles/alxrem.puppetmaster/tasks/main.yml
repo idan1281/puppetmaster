@@ -43,6 +43,14 @@
     recurse: yes
   with_items: ["puppetmasterd", "puppetmasterd/public", "puppetmasterd/tmp"]
 
+- name: Copy config.ru
+  copy:
+    src: /usr/share/puppet/ext/rack/config.ru
+    dest: /usr/share/puppet/rack/puppetmasterd/config.ru
+    owner: puppet
+    group: puppet
+    mode: 0644
+
 - name: configure Apache2
   template: src=puppetlabs.conf.j2 dest={{ apache_dir }}/puppetlabs.conf 
   notify: 
