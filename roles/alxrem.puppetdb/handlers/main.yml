@@ -1,33 +1,43 @@
 ---
 - name: Restart puppetdb
   service: name=puppetdb state=restarted
+  become: true
 
 - name: Start puppetdb
   service: name=puppetdb state=started
+  become: true
 
 - name: Stop puppetdb
   service: name=puppetdb state=stopped
+  become: true
 
 - name: Enable puppetdb
   shell: chkconfig puppetdb on
+  become: true
 
 - name: Stop puppetmaster
   service: name=puppetmaster state=stopped
+  become: true
 
 - name: Start puppetmaster
   service: name=puppetmaster state=started
+  become: true
 
 - name: Restart puppetmaster
   service: name=puppetmaster state=restarted
+  become: true
 
 - name: Enable puppetmaster
   shell: chkconfig puppetmaster on
+  become: true
 
 - name: Restart puppet
   service: name=puppet state=restarted
+  become: true
 
 - name: Enable puppet
   shell: chkconfig puppet on
+  become: true
 
 - name: Restat server
   shell: reboot

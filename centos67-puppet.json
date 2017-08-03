@@ -8,7 +8,7 @@
         "iso_url": "{{ user `iso` }}",
         "iso_checksum": "{{ user `checksum` }}",
         "iso_checksum_type": "md5",
-        "vm_name": "MyCentOS67-puppet",
+        "vm_name": "MyCentOS67-puppet-2",
         "guest_os_type": "RedHat_64",
         "ssh_username": "root",
         "ssh_password": "packer",

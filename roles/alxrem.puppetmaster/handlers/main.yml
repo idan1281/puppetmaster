@@ -7,18 +7,23 @@
 
 - name: Reload nginx
   service: name=nginx state=reloaded
+  become: true
 
 - name: Restart nginx
   service: name=nginx state=restarted
+  become: true
 
 - name: Reload apache2
   service: name=httpd state=reloaded
+  become: true
 
 - name: Enable apache2  
   service: name=httpd enabled=yes
+  become: true
 
 - name: Stop puppetmaster
   shell: /etc/init.d/puppetserver stop
+  become: true
 
 - name: Disable puppetmaster
   shell: chkconfig puppetmaster off 
